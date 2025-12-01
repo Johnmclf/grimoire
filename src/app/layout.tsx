@@ -7,7 +7,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body className="bg-white text-gray-900">
         {/* Navbar */}
         <header className="flex justify-between items-center px-8 py-4 border-b">
-          <Link href="/" className="font-bold text-xl text-red-600">EduLearn</Link>
+          <Link href="/" className="font-bold text-xl text-red-600">Grimoire</Link>
           <nav className="flex gap-6">
             <Link 
               href="/" 

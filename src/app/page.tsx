@@ -35,6 +35,22 @@ export default function HomePage() {
             </CardContent>
           </Card>
           </Link>
+          <Link href={"/courses/python"}>
+          <Card>
+            <CardContent className="p-6">
+              <h3 className="font-bold text-lg mb-2">Python</h3>
+              <p className="text-gray-600">La syntaxe, les librairies, ...</p>
+            </CardContent>
+          </Card>
+          </Link>
+          <Link href={"/courses/sql"}>
+          <Card>
+            <CardContent className="p-6">
+              <h3 className="font-bold text-lg mb-2">SQL</h3>
+              <p className="text-gray-600">Les requêtes, les jointures, ...</p>
+            </CardContent>
+          </Card>
+          </Link>
         </div>
       </section>
     </div>

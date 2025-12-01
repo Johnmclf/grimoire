@@ -11,9 +11,9 @@ export default function RegressionLineairePage() {
         <div className="bg-gray-100 p-4 rounded-xl mb-8">
           <h2 className="text-xl font-semibold mb-2">Sommaire</h2>
           <ul className="list-decimal pl-6 text-gray-700">
-            <li><a href="#presentation" className="text-blue-600 underline"> Présentation générale</a></li>
-            <li><a href="#statistique" className="text-blue-600 underline">Méthode Statistique</a></li>
-            <li><a href="#gradient" className="text-blue-600 underline">Descente de Gradient</a></li>
+            <li><a href="#presentation"> Présentation générale</a></li>
+            <li><a href="#statistique">Méthode Statistique</a></li>
+            <li><a href="#gradient">Descente de Gradient</a></li>
           </ul>
         </div>
 
@@ -38,7 +38,7 @@ export default function RegressionLineairePage() {
             <div className="bg-gray-100 rounded-lg p-3 mb-4">
               <code>ΣX = 150 + 160 + 170 + 180 + 190 = 850</code><br />
               <code>ΣY = 50 + 58 + 65 + 72 + 80 = 325</code><br />
-              <code>n = 5</code><br />
+              <code>n (nombre de points) = 5</code><br />
               <code>Moyenne(X) = 850 / 5 = 170</code><br />
               <code>Moyenne(Y) = 325 / 5 = 65</code>
             </div>
@@ -49,23 +49,25 @@ export default function RegressionLineairePage() {
             <div className="bg-gray-100 rounded-lg p-3 my-2">
               <code>Cov(X, Y) = (1/n) × Σ[(Xᵢ - X̄) × (Yᵢ - Ȳ)]</code>
             </div>
-            <p className="text-gray-600">Exemple détaillé (tableau des étapes) :</p>
+            <p className="text-gray-600">Tableau détaillé :</p>
             <table className="border border-gray-300 text-sm text-center mb-4 w-full">
               <thead>
                 <tr className="bg-gray-200">
                   <th className="border p-2">X</th>
-                  <th className="border p-2">Y</th>
+                  <th className="border p-2">(X̄)</th>
                   <th className="border p-2">(X - X̄)</th>
+                  <th className="border p-2">Y</th>
+                  <th className="border p-2">(Ȳ)</th>
                   <th className="border p-2">(Y - Ȳ)</th>
                   <th className="border p-2">(X - X̄)(Y - Ȳ)</th>
                 </tr>
               </thead>
               <tbody>
-                <tr><td className="border p-2">150</td><td className="border p-2">50</td><td className="border p-2">-20</td><td className="border p-2">-15</td><td className="border p-2">300</td></tr>
-                <tr><td className="border p-2">160</td><td className="border p-2">58</td><td className="border p-2">-10</td><td className="border p-2">-7</td><td className="border p-2">70</td></tr>
-                <tr><td className="border p-2">170</td><td className="border p-2">65</td><td className="border p-2">0</td><td className="border p-2">0</td><td className="border p-2">0</td></tr>
-                <tr><td className="border p-2">180</td><td className="border p-2">72</td><td className="border p-2">10</td><td className="border p-2">7</td><td className="border p-2">70</td></tr>
-                <tr><td className="border p-2">190</td><td className="border p-2">80</td><td className="border p-2">20</td><td className="border p-2">15</td><td className="border p-2">300</td></tr>
+                <tr><td className="border p-2">150</td><td className="border p-2">170</td><td className="border p-2">-20</td><td className="border p-2">50</td><td className="border p-2">65</td><td className="border p-2">-15</td><td className="border p-2">300</td></tr>
+                <tr><td className="border p-2">160</td><td className="border p-2">170</td><td className="border p-2">-10</td><td className="border p-2">58</td><td className="border p-2">65</td><td className="border p-2">-7</td><td className="border p-2">70</td></tr>
+                <tr><td className="border p-2">170</td><td className="border p-2">170</td><td className="border p-2">0</td><td className="border p-2">65</td><td className="border p-2">65</td><td className="border p-2">0</td><td className="border p-2">0</td></tr>
+                <tr><td className="border p-2">180</td><td className="border p-2">170</td><td className="border p-2">10</td><td className="border p-2">72</td><td className="border p-2">65</td><td className="border p-2">7</td><td className="border p-2">70</td></tr>
+                <tr><td className="border p-2">190</td><td className="border p-2">170</td><td className="border p-2">20</td><td className="border p-2">80</td><td className="border p-2">65</td><td className="border p-2">15</td><td className="border p-2">300</td></tr>
               </tbody>
             </table>
             <div className="bg-gray-100 rounded-lg p-3 mb-4">
@@ -100,7 +102,7 @@ export default function RegressionLineairePage() {
             </div>
 
             <p className="text-gray-600 mb-6">
-              Exemple de prédiction : X = 175 → Y = 0.74 × 175 - 60.8 = 68.9
+              Exemple de prédiction : Si X = 175 alors Y = 0.74 × 175 - 60.8 = 68.9
             </p>
           </li>
         </ol>
@@ -110,66 +112,9 @@ export default function RegressionLineairePage() {
         {/* ----------------------------------------------------- */}
         <h2 id="gradient" className="text-2xl font-semibold mt-10 mb-4">3. Méthode par Descente de Gradient</h2>
 
-        <p className="text-gray-600 mb-4">Méthode itérative permettant d'ajuster progressivement a et b.</p>
 
-        <div className="bg-gray-100 rounded-lg p-3 mb-4 text-center">
-          <code>a = a - α × ∂E/∂a</code><br />
-          <code>b = b - α × ∂E/∂b</code>
-        </div>
+        <h2>To Do !</h2>
 
-        <h3 className="text-xl font-semibold mb-2">Étapes :</h3>
-        <ol className="list-decimal pl-6 text-gray-600 mb-6">
-          <li>Initialiser a = 0 et b = 0</li>
-          <li>Calculer les prédictions</li>
-          <li>Calculer l’erreur quadratique</li>
-          <li>Mettre à jour a et b</li>
-          <li>Répéter</li>
-        </ol>
-
-        <h3 className="text-xl font-semibold mb-2">Exemple :</h3>
-        <div className="bg-gray-100 rounded-lg p-3 mb-4">
-          <p className="text-gray-600 mb-2">Sans normalisation (danger : gradients très grands) — juste pour montrer :</p>
-          <code>Initialement : a = 0, b = 0</code><br />
-          <code>Σ(x·y) = 55990 ; Σ(y) = 325</code><br />
-          <code>∂E/∂a = -(2/n)·Σ(x·(y-ŷ)) = -(2/5)·55990 = -22\,396</code><br />
-          <code>∂E/∂b = -(2/n)·Σ(y-ŷ) = -(2/5)·325 = -130</code>
-          <p className="text-gray-600 mt-2">Avec α = 0.01 cela ferait :</p>
-          <code>a₁ = 0 - 0.01×(-22396) = 223.96 — (trop grand, divergence)</code>
-        </div>
-
-        <h3 className="text-xl font-semibold mb-2">Version recommandée — normalisation des X</h3>
-        <p className="text-gray-600 mb-2">On normalise X pour centrer et réduire (moyenne 0, écart-type 1). Pour nos X :</p>
-        <div className="bg-gray-100 rounded-lg p-3 mb-4">
-          <code>X_norm = (X - 170) / sqrt(200) = [-1.414, -0.707, 0, 0.707, 1.414]</code>
-        </div>
-
-        <p className="text-gray-600 mb-2">On entraîne le modèle ŷ = aₙ·X_norm + bₙ avec α = 0.1 (exemple). Puis on reconvertit :</p>
-        <div className="bg-gray-100 rounded-lg p-3 mb-4">
-          <code>a = aₙ / std(X)</code><br />
-          <code>b = bₙ - aₙ × mean(X) / std(X)</code>
-        </div>
-
-        <h3 className="text-xl font-semibold mb-2">Itérations (extrait)</h3>
-        <p className="text-gray-600 mb-2">Après 1 itération (α = 0.1) on obtient par exemple :</p>
-        <div className="bg-gray-100 rounded-lg p-3 mb-4">
-          <code>it=1 → aₙ ≈ 0.611, bₙ ≈ 3.799 → a ≈ 0.611 / 14.142 ≈ 0.043 → (valeurs intermédiaires)</code>
-        </div>
-
-        <p className="text-gray-600 mb-2">Après 200 itérations (exemple d'exécution) :</p>
-        <div className="bg-gray-100 rounded-lg p-3 mb-6">
-          <code>aₙ ≈ 10.46518, bₙ ≈ 65.0 → a = 10.46518 / 14.142 ≈ 0.74 ; b = 65 - 10.46518×170/14.142 ≈ -60.8</code>
-        </div>
-
-        <p className="text-gray-600 mb-6">Conclusion : avec normalisation et un α approprié on retrouve bien <strong>a ≈ 0.74</strong> et <strong>b ≈ -60.8</strong> après suffisamment d'itérations.</p>
-
-        <CodeBlock code={`// TODO: Implémenter la descente de gradient pour la régression linéaire
-// Remarques :
-// 1) Normaliser X (X' = (X - mean)/std) accélère la convergence.
-// 2) Choisir α selon l'échelle des données (ou utiliser un scheduler).
-// 3) Vérifier MSE à chaque itération.
-`} />
-
-        <CodeBlock code={`// TODO: Implémenter la descente de gradient pour la régression linéaire`} />
       </div>
     </div>
   );

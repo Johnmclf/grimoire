@@ -31,7 +31,7 @@ export default function HomePage() {
           <Card>
             <CardContent className="p-6">
               <h3 className="font-bold text-lg mb-2">Modélisation</h3>
-              <p className="text-gray-600">A *, Recherche en profondeur, ...</p>
+              <p className="text-gray-600">A *, MiniMax, Recherche en profondeur, ...</p>
             </CardContent>
           </Card>
           </Link>

@@ -51,6 +51,22 @@ export default function HomePage() {
             </CardContent>
           </Card>
           </Link>
+          <Link href={"/courses/docker"}>
+          <Card>
+            <CardContent className="p-6">
+              <h3 className="font-bold text-lg mb-2">Docker</h3>
+              <p className="text-gray-600">...</p>
+            </CardContent>
+          </Card>
+          </Link>
+          <Link href={"/courses/prisma"}>
+          <Card>
+            <CardContent className="p-6">
+              <h3 className="font-bold text-lg mb-2">Prisma</h3>
+              <p className="text-gray-600">...</p>
+            </CardContent>
+          </Card>
+          </Link>
         </div>
       </section>
     </div>

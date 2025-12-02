@@ -63,7 +63,7 @@ export default function HomePage() {
           <Card>
             <CardContent className="p-6">
               <h3 className="font-bold text-lg mb-2">Prisma</h3>
-              <p className="text-gray-600">...</p>
+              <p className="text-gray-600">Présentation et bases</p>
             </CardContent>
           </Card>
           </Link>

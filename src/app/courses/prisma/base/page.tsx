@@ -4,7 +4,7 @@ export default function PrismaPageBase() {
   return (
     <div className="px-8 py-12 flex justify-center">
       <div className="w-full max-w-2xl">
-        <h1 className="text-3xl font-bold mb-6">Les bases de Prisma</h1>
+        <h1 className="text-3xl font-bold mb-6">Les bases de Prisma (version 6)</h1>
         <p className="text-gray-600 mb-8">
           Prisma est un ORM moderne pour Node.js qui permet d&#39;intéragir facilement
           avec une base de données SQL à l&#39;aide d&#39;un schéma déclaratif et d&#39;une API
